@@ -29,6 +29,8 @@ router = DefaultRouter()
 urlpatterns = [
     path("admin/", admin.site.urls),
 
+    path("api/", include("tracks.urls")),
+
     # Pages (HTML)
     path("", views.home_page, name="home"),
     path("create/", views.create_track_page, name="create-track-page"),
