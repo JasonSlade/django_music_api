@@ -26,7 +26,15 @@ class Command(BaseCommand):
                     break
                 
                 # use drf serialiser for validatin + saving
-                serializer = TrackSerializer(data=row)
+                #serializer = TrackSerializer(data=row)
+                clean_row = {}
+                # ensure genre is included
+                for key, value in row.items():
+                    clean_key = key.replace("\ufeff", "").strip()
+                    clean_row[clean_key] = value
+
+                serializer = TrackSerializer(data=clean_row)
+
 
                 if serializer.is_valid():
                     serializer.save()
