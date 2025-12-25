@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music API Home</title>
+
+    <link rel="stylesheet" href="{% static 'tracks/tracks.css' %}">
+
+</head>
+<body>
+
+    <h1>Welcome to the Music API</h1>
+    <p>This is the home page for the Django Music API project.</p>
+
+    <h3>Navigation for Endpoints</h3>
+
+    <ul>
+        <li><a href="/create/">Create Track</a></li>
+        <li><a href="/delete/">Delete Track</a></li>
+        <li><a href="/search/">Search for a Track</a></li>
+        <li><a href="/update/">Update a Track</a></li>
+        <li><a href="/averages/">Get Genre Averages</a></li>
+        <li><a href="/moods/">Get Moods</a></li>
+        
+    </ul>
+
+</body>
+</html>

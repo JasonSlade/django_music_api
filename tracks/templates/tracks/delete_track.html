@@ -1,0 +1,33 @@
+{% extends "tracks/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<head> 
+    <link rel="stylesheet" href="{% static 'tracks/tracks.css' %}">
+
+</head>
+
+<h2>Delete Track</h2>
+
+
+<form id="deleteForm">
+
+    {% csrf_token %}
+
+
+    <label>Track ID:</label>
+    <input type="text" id="track_id"><br>
+
+   
+    <br>
+    <button type="button" onclick="deleteTrack()">Delete Track</button>
+</form>
+
+
+
+<script src="{% static 'tracks/delete_track.js' %}"></script>
+
+{% endblock %}

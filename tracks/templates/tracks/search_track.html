@@ -1,0 +1,51 @@
+{% extends "tracks/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<head> 
+    <link rel="stylesheet" href="{% static 'tracks/tracks.css' %}">
+
+</head>
+
+<h2>Search Track</h2>
+
+<form id="searchForm">
+
+    <label>Track Name:</label>
+    <input type="text" id="track_name"><br>
+
+    <label>Artist Name:</label>
+    <input type="text" id="artist_name"><br>
+
+    <label>Genre:</label>
+    <input type="text" id="genre"><br>
+
+    <label>Popularity:</label>
+    <input type="text" id="popularity"><br>
+
+    <br>
+    <button type="button" onclick="searchTrack()">Search</button>
+</form>
+
+<div id="search_result"></div>
+
+<table id="results_table" border="1" style="width:100%; margin-top:20px; border-collapse:collapse;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Track</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Popularity >=</th>
+            <th>Danceability</th>
+            <th>Energy</th>
+            <th>Duration (ms)</th>
+        </tr>
+    </thead>
+    <tbody id="results_body"></tbody>
+</table>
+
+<script src="{% static 'tracks/search_track.js' %}"></script>
+
+{% endblock %}

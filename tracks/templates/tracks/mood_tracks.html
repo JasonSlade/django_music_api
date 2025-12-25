@@ -1,0 +1,62 @@
+{% extends "tracks/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<head> 
+    <link rel="stylesheet" href="{% static 'tracks/tracks.css' %}">
+
+</head>
+
+<h1>Welcome to the Moods Page</h1>
+<section class="mood-guide">
+  <p>These are songs that can be classified into three moods:</p>
+
+  <div class="mood">
+    <h3> Happy</h3>
+    <ul>
+      <li>Energy &gt; 0.6</li>
+      <li>Danceability &gt; 0.6</li>
+      <li>Instrumentalness &lt; 0.2</li>
+    </ul>
+  </div>
+
+  <div class="mood">
+    <h3> Chill</h3>
+    <ul>
+      <li>Energy &lt; 0.4</li>
+      <li>Danceability &lt; 0.5</li>
+      <li>Acousticness &gt; 0.4</li>
+    </ul>
+  </div>
+
+  <div class="mood">
+    <h3> Sad</h3>
+    <ul>
+      <li>Energy &lt; 0.4</li>
+      <li>Danceability &lt; 0.5</li>
+      <li>Duration &gt; 180,000 ms</li>
+      <li>Acousticness &gt; 0.3</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<p>Select Mood:</p>
+<button onclick="loadMood('chill')">Chill</button>
+<button onclick="loadMood('happy')">Happy</button>
+<button onclick="loadMood('sad')">Sad</button>
+
+<h3 id="mood_heading"></h3>
+
+<ul id="mood_results">
+   
+</ul>
+
+<script src="{% static 'tracks/mood_tracks.js' %}"></script>
+
+{% endblock %}
+

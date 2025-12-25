@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music API</title>
+    {% load static %}
+   
+    <link rel="stylesheet" href="{% static 'tracks/tracks.css' %}">
+
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'home' %}">Home</a> |
+    <a href="{% url 'create-track-page' %}">Add Track</a>
+    <a href="{% url 'delete-track-page' %}">Delete Track</a>
+    <a href="{% url 'search-track-page' %}">Search Track</a>
+    <a href="{% url 'update-track-page' %}">Update Track</a>
+    <a href="{% url 'genre-averages-page' %}">Genre Averages</a>
+    <a href="{% url 'mood-tracks-page' %}">Get Moods</a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+

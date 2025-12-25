@@ -1,0 +1,18 @@
+{% extends "tracks/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<head> 
+    <link rel="stylesheet" href="{% static 'tracks/css/tracks.css' %}">
+
+</head>
+<input id="genre_input" placeholder="Enter genre">
+<button onclick="getGenreAverages()">Get Averages</button>
+<div id="genre_result"></div>
+
+
+<script src="{% static 'tracks/average_tracks.js' %}"></script>
+
+{% endblock %}
