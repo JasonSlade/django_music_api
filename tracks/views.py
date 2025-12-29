@@ -234,6 +234,30 @@ def mood_tracks_api(request, mood):
             duration_ms__gt=180000,
             acousticness__gt=0.3
         )
+    elif mood == "excited":
+        queryset = Track.objects.filter(
+            energy__gt=0.7,
+            danceability__gt=0.7,
+            popularity__gt=70
+        )
+    elif mood == "study":
+        queryset = Track.objects.filter(
+            instrumentalness__gt=0.5,
+            energy__lt=0.5,
+            acousticness__gt=0.4
+        )
+    elif mood == "workout":
+        queryset = Track.objects.filter(
+            energy__gt=0.6,
+            danceability__gt=0.6,
+            duration_ms__gt=150000
+        )
+    elif mood == "romantic":
+        queryset = Track.objects.filter(
+            acousticness__gt=0.5,
+            energy__lt=0.5,
+            danceability__gt=0.4
+        )
 
     else:
         return JsonResponse(
@@ -249,7 +273,7 @@ def mood_tracks_api(request, mood):
             "energy",
             "danceability",
             "acousticness"
-        )[:50]
+        )[:]
     )
 
     return JsonResponse({

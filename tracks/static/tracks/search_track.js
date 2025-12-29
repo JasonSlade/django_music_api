@@ -8,6 +8,9 @@ function searchTrack() {
     const artistName = document.getElementById("artist_name").value;
     const genre = document.getElementById("genre").value;
     const popularity = document.getElementById("popularity").value;
+    const danceability = document.getElementById("danceability").value;
+    const energy = document.getElementById("energy").value;
+    const duration = document.getElementById("duration").value;
 
     const params = new URLSearchParams();
     if (trackName) params.append("track_name", trackName);
@@ -15,6 +18,9 @@ function searchTrack() {
     if (genre) params.append("genre", genre);
     //if (popularity !== "") params.append("popularity", popularity);
     if (popularity) params.append("popularity", popularity);
+    if (danceability) params.append("danceability", danceability);
+    if (energy) params.append("energy", energy);
+    if (duration) params.append("duration_ms", duration);
 
     // fetch to get tracks
     fetch(`/api/tracks/search/?${params.toString()}`)
@@ -28,7 +34,7 @@ function searchTrack() {
             tableBody.innerHTML = "";
 
             // limit results so browser doesn't freeze
-            const limit = 10;
+            const limit = 1000;
             const rows = data.slice(0, limit);
             // display results
             rows.forEach(track => {

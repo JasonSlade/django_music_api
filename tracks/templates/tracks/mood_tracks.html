@@ -12,10 +12,30 @@
 
 <h1>Welcome to the Moods Page</h1>
 <section class="mood-guide">
-  <p>These are songs that can be classified into three moods:</p>
+  <p>These are songs that can be classified into moods:</p>
+
+  <p>Select Mood:</p>
+<button onclick="loadMood('chill')">Chill</button>
+<button onclick="loadMood('happy')">Happy</button>
+<button onclick="loadMood('sad')">Sad</button>
+<button onclick="loadMood('excited')">Excited</button>
+<button onclick="loadMood('study')">Study</button>
+<button onclick="loadMood('workout')">Workout</button>
+<button onclick="loadMood('romantic')">Romantic</button>
+
+<section class="moods">
+  <h2>Mood Definitions:</h2>
+
+  <p>Happy Mood: High energy and danceability make these songs lively and fun</p>
+  <p>Chill Mood: Low energy and danceability make these songs relaxing and calm</p>
+  <p>Sad Mood: Low energy and danceability make these songs melancholic and emotional</p>
+  <p>Excited Mood: High energy and danceability make these songs energetic and uplifting</p>
+  <p>Study Mood: High instrumentalness and acousticness make these songs ideal for focus</p>
+  <p>Workout Mood: High energy and danceability make these songs perfect for exercise</p>
+  <p>Romantic Mood: High acousticness and low danceability make these songs ideal for romance</p>
 
   <div class="mood">
-    <h3> Happy</h3>
+    <h3>Happy</h3>
     <ul>
       <li>Energy &gt; 0.6</li>
       <li>Danceability &gt; 0.6</li>
@@ -24,7 +44,7 @@
   </div>
 
   <div class="mood">
-    <h3> Chill</h3>
+    <h3>Chill</h3>
     <ul>
       <li>Energy &lt; 0.4</li>
       <li>Danceability &lt; 0.5</li>
@@ -33,7 +53,7 @@
   </div>
 
   <div class="mood">
-    <h3> Sad</h3>
+    <h3>Sad</h3>
     <ul>
       <li>Energy &lt; 0.4</li>
       <li>Danceability &lt; 0.5</li>
@@ -41,14 +61,48 @@
       <li>Acousticness &gt; 0.3</li>
     </ul>
   </div>
+
+  <div class="mood">
+    <h3>Excited</h3>
+    <ul>
+      <li>Energy &gt; 0.7</li>
+      <li>Danceability &gt; 0.7</li>
+      <li>Popularity &gt; 70</li>
+    </ul>
+  </div>
+
+  <div class="mood">
+    <h3>Study</h3>
+    <ul>
+      <li>Instrumentalness &gt; 0.5</li>
+      <li>Energy &lt; 0.5</li>
+      <li>Acousticness &gt; 0.4</li>
+    </ul>
+  </div>
+
+  <div class="mood">
+    <h3>Workout</h3>
+    <ul>
+      <li>Energy &gt; 0.6</li>
+      <li>Danceability &gt; 0.6</li>
+      <li>Duration &gt; 150,000 ms</li>
+    </ul>
+  </div>
+
+  <div class="mood">
+    <h3>Romantic</h3>
+    <ul>
+      <li>Acousticness &gt; 0.5</li>
+      <li>Energy &lt; 0.5</li>
+      <li>Danceability &gt; 0.4</li>
+    </ul>
+  </div>
 </section>
 
 
 
-<p>Select Mood:</p>
-<button onclick="loadMood('chill')">Chill</button>
-<button onclick="loadMood('happy')">Happy</button>
-<button onclick="loadMood('sad')">Sad</button>
+
+
 
 <h3 id="mood_heading"></h3>
 

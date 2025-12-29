@@ -6,7 +6,7 @@ from pathlib import Path
 MAX_ROWS = 9500
 
 class Command(BaseCommand):
-    help = "Load the 9500 tracks from CSV into database"
+    help = "Load 9500 tracks from CSV into database"
 
     def handle(self, *args, **kwargs):
         # relative path in file

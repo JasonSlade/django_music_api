@@ -93,3 +93,27 @@ nav a:hover {
     color: #ff00f7;
 }
 
+
+
+/* Moods*/
+
+.moods {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.mood {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.mood h3 {
+  margin: 0 0 0.5rem;
+}
+
+.mood ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
