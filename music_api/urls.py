@@ -19,8 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from tracks.views import *
-from tracks.views import track_list_api
-from tracks.api import TrackList, TrackDetail
 from tracks import views
 
 router = DefaultRouter()

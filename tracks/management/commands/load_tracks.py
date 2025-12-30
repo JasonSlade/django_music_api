@@ -1,8 +1,11 @@
+# script to load the csv data into db
+
 import csv
 from django.core.management.base import BaseCommand
 from tracks.serializers import TrackSerializer
 from pathlib import Path
 
+# how many rows we want from csv
 MAX_ROWS = 9500
 
 class Command(BaseCommand):

@@ -2,7 +2,7 @@
 
 console.log("moods.js loaded");
 
-
+// loads mood data from server + renders to page
 function loadMood(mood) {
     const heading = document.getElementById("mood_heading");
     const list = document.getElementById("mood_results");
@@ -26,7 +26,7 @@ function loadMood(mood) {
                 list.innerHTML = "<li>No tracks found.</li>";
                 return;
             }
-
+            // creates list items for each track
             data.tracks.forEach(track => {
                 const item = document.createElement("li");
                 item.textContent =

@@ -2,7 +2,7 @@
 
 console.log("search_track.js loaded");
 
-
+// performs search based on form inputs
 function searchTrack() {
     const trackName = document.getElementById("track_name").value;
     const artistName = document.getElementById("artist_name").value;
@@ -26,6 +26,7 @@ function searchTrack() {
     fetch(`/api/tracks/search/?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
+            // get result div + table body
             const resultDiv = document.getElementById("search_result");
             const tableBody = document.getElementById("results_body");
 

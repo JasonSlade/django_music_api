@@ -13,16 +13,16 @@ function getCSRFToken() {
         ?.split("=")[1];
 }
 
+// function to delete a track
 function deleteTrack() {
     const trackId = document.getElementById("track_id").value;
     const resultDiv = document.getElementById("delete_result");
-
     if (!trackId) {
         resultDiv.innerHTML =
             "<p style='color:red;'>Please enter a Track ID.</p>";
         return;
     }
-
+    // make DELETE request to API
     fetch(`/api/tracks/${trackId}/`, {
         method: "DELETE",
         headers: {

@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 # Add defaults for numeric fields
+# Track model to represent a spotify music track
 class Track(models.Model):
     # base identifiers
     genre = models.CharField(max_length=100, default="")

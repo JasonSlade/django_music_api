@@ -11,8 +11,9 @@ function getCSRFToken() {
         ?.split("=")[1];
 }
 
-
+// function to submit new track data
 function submitTrack() {
+    // gather data from form fields
    var newTrack = {
     genre: document.getElementById("genre").value,
     artist_name: document.getElementById("artist_name").value,
@@ -25,7 +26,7 @@ function submitTrack() {
     instrumentalness: parseFloat(document.getElementById("instrumentalness").value)
 };
 
-
+// make POST request to create new track
     fetch('/api/tracks/create/', {
     method: "POST",
     credentials: "same-origin",
@@ -55,10 +56,10 @@ function submitTrack() {
 }
 
 
-
+// set up event listener on DOM load
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM loaded");
-
+    // attach event listener to submit button
     document
         .getElementById("submitBtn")
         .addEventListener("click", submitTrack);
