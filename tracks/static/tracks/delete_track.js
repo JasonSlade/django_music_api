@@ -23,7 +23,8 @@ function deleteTrack() {
         return;
     }
     // make DELETE request to API
-    fetch(`/api/tracks/${trackId}/`, {
+    fetch(`/api/tracks/${trackId}/delete/`, {
+
         method: "DELETE",
         headers: {
             "X-CSRFToken": getCSRFToken()   

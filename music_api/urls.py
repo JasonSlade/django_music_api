@@ -1,3 +1,5 @@
+
+
 """
 URL configuration for music_api project.
 
@@ -53,5 +55,3 @@ urlpatterns = [
 
 
 ]
-
-

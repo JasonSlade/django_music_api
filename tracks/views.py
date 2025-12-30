@@ -73,13 +73,23 @@ def create_track_api(request):
     return JsonResponse({"error": "Method not allowed"}, status=405)
 
 def delete_track_api(request, track_id):
-    if request.method == "DELETE":
-        track = Track.objects.get(id=track_id)
-        track.delete()
+    if request.method != "DELETE":
         return JsonResponse(
-            {"message": "Track deleted"},
-            status=204
+            {"error": "Method not allowed"},
+            status=405
         )
+
+    try:
+        track = Track.objects.get(id=track_id)
+    except Track.DoesNotExist:
+        return JsonResponse(
+            {"error": "Track not found"},
+            status=404
+        )
+
+    track.delete()
+    return JsonResponse({}, status=204)
+
 
 def search_tracks_api(request):
     track_name = request.GET.get("track_name", "")
@@ -140,6 +150,11 @@ def get_track_api(request, track_id):
             "energy": track.energy,
             "instrumentalness": track.instrumentalness,
         })
+    
+    return JsonResponse(
+        {"error": "Method not allowed"},
+        status=405
+        )
 
 
 def update_track_api(request, track_id):
