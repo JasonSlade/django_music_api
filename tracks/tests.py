@@ -63,14 +63,16 @@ class TrackAPITests(TestCase):
     # checks does "DELETE" do what it should do
     # use an existing track + send delete request - verify track is gone
     def test_delete_track_api(self):
-        response = self.client.delete(
-            f"/api/tracks/{self.track.id}/"
+        response = self.client.generic(
+            "DELETE",
+            f"/api/tracks/{self.track.id}/",
         )
 
         self.assertEqual(response.status_code, 204)
         self.assertFalse(
             Track.objects.filter(id=self.track.id).exists()
         )
+
 
     # 3. search track
     # we test: if the search filtering works correctly
@@ -92,7 +94,7 @@ class TrackAPITests(TestCase):
     # we test: does GET /api/track/<id>/ return correct track
     def test_get_track_api(self):
         response = self.client.get(
-            f"/api/track/{self.track.id}/"
+            f"/api/tracks/{self.track.id}/"
         )
 
         self.assertEqual(response.status_code, 200)

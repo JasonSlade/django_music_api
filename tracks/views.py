@@ -313,4 +313,26 @@ def track_list_api(request):
         "duration_ms"
     )
     return JsonResponse(list(tracks), safe=False)
-    
+
+#################################################################################  
+
+def track_detail_api(request, track_id):
+    try:
+        track = Track.objects.get(id=track_id)
+    except Track.DoesNotExist:
+        return JsonResponse({"error": "Track not found"}, status=404)
+
+    if request.method == "GET":
+        return JsonResponse({
+            "id": track.id,
+            "track_name": track.track_name,
+            "artist_name": track.artist_name,
+            "genre": track.genre,
+            "popularity": track.popularity,
+        })
+
+    if request.method == "DELETE":
+        track.delete()
+        return JsonResponse({}, status=204)
+
+    return JsonResponse({"error": "Method not allowed"}, status=405)

@@ -23,6 +23,8 @@ from rest_framework.routers import DefaultRouter
 from tracks.views import *
 from tracks.views import track_list_api
 from tracks.api import TrackList, TrackDetail
+from tracks.views import track_detail_api
+
 from tracks import views
 
 router = DefaultRouter()
@@ -31,7 +33,7 @@ router = DefaultRouter()
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("api/", include("tracks.urls")),
+    
 
     # Pages (HTML)
     path("", views.home_page, name="home"),
@@ -45,13 +47,15 @@ urlpatterns = [
     # API (JSON)
     path("api/tracks/", views.track_list_api),
     path("api/tracks/create/", views.create_track_api),
-    path("api/tracks/<int:track_id>/", views.delete_track_api),
+   # path("api/tracks/<int:track_id>/", views.delete_track_api),
     path("api/tracks/search/", views.search_tracks_api),
-    path("api/track/<int:track_id>/", get_track_api, name="get_track_api"),
+    #path("api/track/<int:track_id>/", get_track_api, name="get_track_api"),
+    path("api/tracks/<int:track_id>/", track_detail_api),
+
     path("api/track/<int:track_id>/update/", update_track_api),
     path("api/genres/<str:genre>/averages/", genre_averages_api),
     path("api/moods/<str:mood>/", mood_tracks_api),
 
-
+    path("api/", include("tracks.urls")),
 
 ]
